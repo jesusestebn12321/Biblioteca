@@ -1,5 +1,5 @@
+<title>Admin | Estudents</title>
 <?php require 'views/layouts/admin.template.php'; ?>
-
 <main id='viewsEstudents'> 
     <?php require 'views/modales/add.estudent.php'; ?>
     <div class='container'>

@@ -1,3 +1,4 @@
+<title>Admin | Books</title>
 <?php require 'views/layouts/admin.template.php'; ?>
 <main id='book'>
 <?php require 'views/modales/add.book.php'; ?>

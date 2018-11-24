@@ -9,11 +9,11 @@
                 <form action="<?php echo constant('URL')?>Book/Store" method='POST'>
                     <div class="form-group">
                         <label for="nombre">Codigo</label>
-                        <input type="number" name='code' class="form-control" placeholder="Titulo" required>
+                        <input type="number" name='code' class="form-control" placeholder="Codigo" required>
                     </div>
                     <div class="form-group">
                         <label for="nombre">Autor</label>
-                        <input type="text" name='autor' class="form-control" placeholder="Titulo" required>
+                        <input type="text" name='autor' class="form-control" placeholder="Autor" required>
                     </div>
                     <div class="form-group">
                         <label for="nombre">Titulo</label>

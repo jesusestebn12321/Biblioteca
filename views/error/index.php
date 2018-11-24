@@ -1,3 +1,4 @@
+<title>Error404</title>
 <?php require 'views/layouts/admin.template.php'; ?>
 <main>
 	<div class="container">

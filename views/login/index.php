@@ -39,12 +39,12 @@
                             <div class="row">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-lg-12 col-xs-12">
-                                        <input type="text" class="form-control" id="user" placeholder="Usuario" required> <br>         
+                                        <input type="text" class="form-control" id="user" placeholder="&#128272; Usuario" required> <br>         
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12 col-lg-12 col-xs-12">
-                                        <input type="password" class="form-control" id="pass" placeholder="Clave" required><br>
+                                        <input type="password" class="form-control" id="pass" placeholder="&#128272; Clave" required><br>
                                     </div>
                                 </div>
                             </div>
