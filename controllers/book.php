@@ -8,6 +8,8 @@
         }
         public function Index(){
             echo '<h4>metodo index</h4>';
+            $show=$this->model->show();
+            
         }
         public function Store(){
             // echo 'estoy en el controlador';

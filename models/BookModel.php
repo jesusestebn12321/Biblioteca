@@ -3,6 +3,9 @@
         public function __construct(){
             parent::__construct();
         }
+        public function show(){
+            echo 'show';
+        }
         public function insert($request){
             // ensertar datos de la db
             try{

@@ -3,7 +3,7 @@
 		<div class="modal-content"> 
 			<div class="app-modal-header modal-header bg-aqua text-white">
 				<button class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
-				<h3>Estudiante <span class="fa fa-user"></span></h3>
+				<h3 class='center'>Estudiante <span class="fa fa-user"></span></h3>
 			</div>
 			<div class="modal-body">
                 <form action="<?php echo constant('URL')?>Estudent/Store" method='POST' id="formulario">

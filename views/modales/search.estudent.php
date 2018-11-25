@@ -1,9 +1,9 @@
 <div class="modal fade" id="modalSearchEstudent">
 	<div class="modal-dialog">
 		<div class="modal-content"> 
-			<div class="app-modal-header modal-header bg-aqua text-white">
+			<div class="app-modal-header modal-header bg-aqua-gradient text-white">
 				<button class="close" aria-hidden="true" data-dismiss="modal">&times;</button>
-				<h3>Entregar Libro <span class="fa fa-book"></span></h3>
+				<h3 class='center'>Entregar Libro <span class="fa fa-book"></span></h3>
 			</div>
 			<div class="modal-body">
             <form action="#" id="formulario">

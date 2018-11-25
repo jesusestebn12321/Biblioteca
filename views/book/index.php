@@ -4,14 +4,15 @@
 <?php require 'views/modales/add.book.php'; ?>
     <div class='container'>
         <div class="row"> <hr>
+            <!-- <h1><?php echo $this->request; ?></h1><hr> -->
             <div class='col-xs-6 col-lg-6 col-md-6'>
-                <h1> <i class='fa fa-address-book'></i> <b>L</b>ibros <b>ASI</b></h1>
+                <h1 class='app-sub-titulo'> <i class='fa fa-address-book'></i> <span class='app-resaltar-letras'>L</span>ibros <span class='app-resaltar-letras'>ASI</span></h1>
             </div>
             <div class="col-xs-6 col-lg-6 col-md-6">
                 <div class="small-stat clearfix">
                     <div class="container-fluid">
                         <div class='row'>
-                            <span class="small-stat-icon pink">
+                            <span class="small-stat-icon bg-maroon-gradient">
                                 <i class="fa fa-book"></i>
                             </span>
                             <div class='col-lg-8'>
@@ -32,7 +33,7 @@
                 <div class="row">
                     <table id="products" class="table table-striped table-bordered table-hover">
                         <thead>
-                            <tr>
+                            <tr id='app-tr'>
                                 <th class="text-center">Codigo</th>
                                 <th class="text-center">Titulo</th>
                                 <th class="text-center">Autor</th>
@@ -40,7 +41,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for='(libros, id) in libro'>
+                            <tr id='app-tr' v-for='(libros, id) in libro'>
                                 <td>
                                    <p v-if='!editStatus'>{{libros.codigo}}</p>
                                    <input v-else class='form-control' v-model='codigo' type="text">

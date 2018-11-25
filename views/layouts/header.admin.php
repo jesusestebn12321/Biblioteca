@@ -1,8 +1,8 @@
-<a href="dashboard" class="logo">Admin</a>
-<nav class="navbar navbar-static-top" role="navigation">
-    <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
+<a href="dashboard" class="logo bg-black-gradient"> Biblioteca <span class='appresaltar-letras'>ASI</span></a>
+<nav class="navbar navbar-static-top" role="navigation" style='border-bottom:0px;'>
+    <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button" >
+        <span class="sr-only"></span>
+        <span class="icon-bar "></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </a>

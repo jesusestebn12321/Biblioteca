@@ -11,7 +11,7 @@
                 <div class="small-stat clearfix">
                     <div class="container-fluid">
                         <div class='row'>
-                            <span class="small-stat-icon tar">
+                            <span class="small-stat-icon bg-green-gradient">
                                 <i class="fa fa-user-plus"></i>
                             </span>
                             <div class='col-lg-8'>
@@ -27,12 +27,11 @@
                     </div>
                 </div>
             </div><hr>
-            
             <div class='container-fluid'>
                 <div class="row">
                     <table id="products" class="table table-striped table-bordered table-hover">
                         <thead>
-                            <tr>
+                            <tr id='app-tr'>
                                 <th class="text-center">Cedula</th>
                                 <th class="text-center">Nombre</th>
                                 <th class="text-center">Apellido</th>
@@ -41,8 +40,8 @@
                                 <th class="text-center"></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
+                        <tbody >
+                            <tr id='app-tr'>
                                 <td>
                                    <p v-if='!editStatus'>{{cedula}}</p>
                                    <input v-else class='form-control' v-model='cedula' type="text" value="">

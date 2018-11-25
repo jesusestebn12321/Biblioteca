@@ -12,17 +12,17 @@ var dashboard=new Vue({
 			
 			{
 				id:3,
-				color:'<span class="small-stat-icon pink"><i class="fa fa-shopping-cart"></i></span>',
+				color:'<span class="small-stat-icon bg-purple-gradient"><i class="fa fa-shopping-cart"></i></span>',
 				name:'Asignar libro Estudiantes',
 				descripcion:'Eliminar Estudiantes del Registrado',
-				button:'<a class="btn btn-primary btn-block"  data-toggle="modal" data-target="#modalAsignarBook"  href="#!"> <i class="fa fa-eye"></i> IR </a>'
+				button:'<a class="btn bg-blue-gradient btn-block"  data-toggle="modal" data-target="#modalAsignarBook"  href="#!"> <i class="fa fa-eye"></i> IR </a>'
 			},
 			{
 				id:4,
 				color:'<span class="small-stat-icon bg-orange"><i class="fa fa-users"></i></span>',
-				name:'Entregar libros',
+				name:'Buscar Estudiantes con libros',
 				descripcion:'Estudiantes que aun no ah entregado libro',
-				button:'<a class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalSearchEstudent" href="#!"> <i class="fa fa-eye"></i> IR </a>'
+				button:'<a class="btn bg-blue-gradient btn-block" data-toggle="modal" data-target="#modalSearchEstudent" href="#!"> <i class="fa fa-eye"></i> IR </a>'
 			},
 		]
 	}
@@ -41,10 +41,10 @@ var viewsEstudent=new Vue({
 		telefono:'0000-000-00-00',
 		correo:'jesusnoteimporta@example.com',
 		editStatus:false,
-		primerTitulo:"<h1> <i class='fa fa-users'></i> <b>E</b>studiantes <b>R</b>egistrados</h1>",
+		primerTitulo:"<h1 class='app-sub-titulo'> <i class='fa fa-users'></i> <span class='app-resaltar-letras'>E</span>studiantes <span class='app-resaltar-letras'>R</span>egistrados</h1>",
 		titulo:'Add Estudiante',
 		descripcion:'Agrega mas Estudiantes al reguistro',
-		btn:'<a class="btn btn-primary btn-block" id="addBook" data-toggle="modal" data-target="#modalAddEstudents" href="#!">Add <i class="fa fa-plus"></i></a>'
+		btn:'<a class="btn  bg-blue-gradient  btn-block " id="addBook" data-toggle="modal" data-target="#modalAddEstudents" href="#!">Add <i class="fa fa-plus"></i></a>'
 	},
 	methods:{
 		editarEstudent(){
@@ -82,7 +82,7 @@ var book=new Vue({
 		
 		panelTitulo:'Add Libro',
 		panelDescripcion:'Agrega mas Libros al reguistro',
-		btn:'<a class="btn btn-primary btn-block" id="addBook" data-toggle="modal" data-target="#modalAddBooks" href="#!">Add <i class="fa fa-plus"></i></a>'
+		btn:'<a class="btn bg-blue-gradient btn-block" id="addBook" data-toggle="modal" data-target="#modalAddBooks" href="#!">Add <i class="fa fa-plus"></i></a>'
 	
 	},
 	methods:{

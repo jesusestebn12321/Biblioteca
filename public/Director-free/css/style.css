@@ -571,7 +571,7 @@ Gradient Background colors
   background: -o-linear-gradient(#f7bc60, #f39c12) !important;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7bc60', endColorstr='#f39c12', GradientType=0) !important;
   color: #fff;
-}
+} 
 .bg-purple-gradient {
   background: #932ab6 !important;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #932ab6), color-stop(1, #b959d9)) !important;
@@ -2943,7 +2943,6 @@ vertical-align: top;
 }
 /* skin-black sidebar */
 .skin-black .sidebar {
-  border-bottom: 1px solid #39435C;
 }
 .skin-black .sidebar > .sidebar-menu > li {
   /*border-top: 1px solid #333;

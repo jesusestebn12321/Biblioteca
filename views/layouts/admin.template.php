@@ -14,6 +14,7 @@ $template=new Template();
                 <link href="<?php echo constant("URL")?>public/fonts/css/font-awesome.min.css"  rel="stylesheet" type="text/css"/>
                 <link href="<?php echo constant("URL")?>public/css/bootstrap.min.css"           rel="stylesheet" type="text/css"/>
                 <link href="<?php echo constant("URL")?>public/Director-free/css/style.css"     rel="stylesheet" type="text/css"/>
+                <link href="<?php echo constant("URL")?>public/css/admin.main.css"           rel="stylesheet" type="text/css"/>
                 <!-- Script -->
                 
                 <script src="<?php echo constant("URL")?>public/js/vendor/modernizr-2.8.3.min.js"></script>
