@@ -4,20 +4,26 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login</title>
-    <link rel="shortcut icon" href="<?php echo constant('URL')?>public/img/portafolio.ico" />
+    <link rel="shortcut icon" href="<?php echo constant('URL')?>/public/img/portafolio.ico" />
                     <!-- Styles -->
-    <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="<?php echo constant('URL')?>public/fonts/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/main.css">
-    <link rel="stylesheet" href="<?php echo constant('URL')?>public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo constant('URL')?>public/WOW-master/css/libs/animate.css">
+    <link rel="stylesheet" href="<?php echo constant('URL')?>/public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="<?php echo constant('URL')?>/public/fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo constant('URL')?>/public/css/main.css">
+    <link rel="stylesheet" href="<?php echo constant('URL')?>/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo constant('URL')?>/public/WOW-master/css/libs/animate.css">
                     <!-- Scripts -->
-    <script src="<?php echo constant('URL')?>public/js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src="<?php echo constant('URL')?>public/js/vendor/bootstrap.min.js"></script>
-    <script src="<?php echo constant('URL')?>public/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src="<?php echo constant('URL')?>public/js/vendor/vue.js"></script>
+    <script src="<?php echo constant('URL')?>/public/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="<?php echo constant('URL')?>/public/js/vendor/bootstrap.min.js"></script>
+    <script src="<?php echo constant('URL')?>/public/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="<?php echo constant('URL')?>/public/js/vendor/vue.js"></script>
 </head>
 <body class='body'>
+    <?php
+        session_start();
+        if (empty($_SESSION['user'])) {
+            # code...
+        
+    ?>
     <header>
         <div class="container-fluid">
             <div class="row">
@@ -33,18 +39,18 @@
                 <div class="panel-heading app-panel-gray">
                     <h2 class='center text-black'>Iniciar Sección</h2>
                 </div>
-                <form action="<?php echo constant('URL')?>Login/Index" method="POST">
+                <form action="<?php echo constant('URL')?>/Login/Index" method="GET">
                     <div class="panel-body app-panel-gray">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="form-group">
                                     <div class="col-sm-12 col-lg-12 col-xs-12">
-                                        <input type="text" class="form-control" id="user" placeholder="&#128272; Usuario" required> <br>         
+                                        <input type="text" class="form-control" name="user" placeholder="&#128272; Usuario" required> <br>         
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12 col-lg-12 col-xs-12">
-                                        <input type="password" class="form-control" id="pass" placeholder="&#128272; Clave" required><br>
+                                        <input type="password" class="form-control" name="password" placeholder="&#128272; Clave" required><br>
                                     </div>
                                 </div>
                             </div>
@@ -62,9 +68,12 @@
         </div>
     </div>
 </body>
-<script src="<?php echo constant('URL')?>public/js/vendor/jquery-1.11.2.min.js"></script>
-<script src="<?php echo constant('URL')?>public/js/vendor/bootstrap.min.js"></script>
-<script src="<?php echo constant('URL')?>public/WOW-master/dist/wow.js"></script>
-<script src="<?php echo constant('URL')?>public/js/main.js"></script>
-<script src="<?php echo constant('URL')?>public/js/vendor/vue.js"></script>
+    <?php }else{
+
+}?>
+<script src="<?php echo constant('URL')?>/public/js/vendor/jquery-1.11.2.min.js"></script>
+<script src="<?php echo constant('URL')?>/public/js/vendor/bootstrap.min.js"></script>
+<script src="<?php echo constant('URL')?>/public/WOW-master/dist/wow.js"></script>
+<script src="<?php echo constant('URL')?>/public/js/main.js"></script>
+<script src="<?php echo constant('URL')?>/public/js/vendor/vue.js"></script>
 </html>

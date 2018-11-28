@@ -24,16 +24,8 @@
 .bg-blue-dark{background:var(--color-blue-dark);}
 /* /Colores */
 
-.mt-0{margin-top:0 !important;}
-.mt-5{margin-top:3rem !important;}
-.mt-3{margin-top:1rem !important;}
-.py-3 {padding-top:1rem !important;}
-.py-4 {padding-top:1.5rem !important;}
-.mr-4{margin-right:1.5rem !important;}
-.mb-4{margin-bottom:1.5rem !important;}
+
 .btn{position:relative;overflow:hidden;}
-.mx-auto {margin-right:auto !important;}
-.text-uppercase {text-transform:uppercase !important;}
 
 .btn:focus:not(:active)::after{-webkit-animation:ripple 2s ease-in-out;-o-animation:ripple 2s ease-in-out;animation:ripple 2s ease-in-out;}
 .list-group:hover .badge{display:block;-webkit-animation:vuelta 1s ease-in-out ;-o-animation:vuelta 1s ease-in-out ;animation:vuelta 1s ease-in-out ;}
@@ -47,18 +39,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 @keyframes girar{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
 @keyframes vuelta{from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}
 
-
-header{
-	position: relative;
-	top: 10rem;
-	padding-top: 2rem;
-	padding-bottom:20rem;
-	margin-bottom: 5rem;
-	text-align:justify;
-	letter-spacing:2px;
+.app-rotar{
+	animation: 1s vuelta infinite ease-in-out; 
 }
 .panel{
 	background: green;
+	
 }
 .box-titulo{
 	background: rgba(0, 0, 0, 0.226);

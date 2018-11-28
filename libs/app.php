@@ -10,6 +10,7 @@
                 require_once $fileControllers; 
                 $controller=new Login();
                 $controller->loadModel('index');
+                $controller->render();
                 return false;
             
             }
@@ -21,6 +22,8 @@
                 $controller->loadModel($url[0]);
                 if (isset($url[1])) {
                     $controller->{$url[1]}();
+                }else{
+                    $controller->render();
                 }
             }else{
                 require_once 'controllers/errors.php'; 

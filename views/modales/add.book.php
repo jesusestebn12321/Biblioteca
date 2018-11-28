@@ -6,7 +6,8 @@
 				<h3 class='center'>Libro <span class="fa fa-book"></span></h3>
 			</div>
 			<div class="modal-body">
-                <form action="<?php echo constant('URL')?>Book/Store" method='POST'>
+                <form action="<?php echo constant('URL')?>/Book/Store" method='POST'>
+                    <input type="hidden" name='status' value='1' placeholder="Codigo" required>
                     <div class="form-group">
                         <label for="nombre">Codigo</label>
                         <input type="number" name='code' class="form-control" placeholder="Codigo" required>

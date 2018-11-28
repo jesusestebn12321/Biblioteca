@@ -1,5 +1,5 @@
 <title>Helpers</title>
-<?php require 'views/layouts/admin.template.php'; ?>
+<?php require 'views/layouts/newTemplate.php'; ?>
 <main>
 	<div class="container">
 		<div class="row">

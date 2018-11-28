@@ -1,32 +1,9 @@
 $('[data-toggle="tooltip"]').tooltip();
-
-Vue.component('componente-div', {
-	template: ""
-  });
-var dashboard=new Vue({
-	el:'#dashboard',
-	data:{
-		hola:'hola',
-		articulos:
-		[
-			
-			{
-				id:3,
-				color:'<span class="small-stat-icon bg-purple-gradient"><i class="fa fa-shopping-cart"></i></span>',
-				name:'Asignar libro Estudiantes',
-				descripcion:'Eliminar Estudiantes del Registrado',
-				button:'<a class="btn bg-blue-gradient btn-block"  data-toggle="modal" data-target="#modalAsignarBook"  href="#!"> <i class="fa fa-eye"></i> IR </a>'
-			},
-			{
-				id:4,
-				color:'<span class="small-stat-icon bg-orange"><i class="fa fa-users"></i></span>',
-				name:'Buscar Estudiantes con libros',
-				descripcion:'Estudiantes que aun no ah entregado libro',
-				button:'<a class="btn bg-blue-gradient btn-block" data-toggle="modal" data-target="#modalSearchEstudent" href="#!"> <i class="fa fa-eye"></i> IR </a>'
-			},
-		]
+$("#Book").DataTable();
+$('#estudent').DataTable();
+	function Asignar(id_row){
+		$('#asignarBook').val(id_row);
 	}
-});
 var viewsEstudent=new Vue({
 	el:'#viewsEstudents',
 	data:{
@@ -82,8 +59,7 @@ var book=new Vue({
 		
 		panelTitulo:'Add Libro',
 		panelDescripcion:'Agrega mas Libros al reguistro',
-		btn:'<a class="btn bg-blue-gradient btn-block" id="addBook" data-toggle="modal" data-target="#modalAddBooks" href="#!">Add <i class="fa fa-plus"></i></a>'
-	
+		btn:'<a data-toggle="modal" data-target="#modalAddBooks"  href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
 	},
 	methods:{
 		

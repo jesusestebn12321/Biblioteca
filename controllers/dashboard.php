@@ -3,11 +3,13 @@
     class Dashboard extends Controller{
         public function __construct(){
             parent::__construct();
-            $this->view->render('dashboard/index');
             // echo '<h3> nuevo controlador main</h3>';
         }
+        public function render(){
+            $this->view->render('dashboard/index');
+        }
         public function Index(){
-            echo '<h4>metodo index</h4>';
+            $this->view->render('dashboard/index');
         }
         public function Store(){
             echo '<h1>metodo store</h1>';

@@ -6,22 +6,22 @@
 				<h3 class='center'>Estudiante <span class="fa fa-user"></span></h3>
 			</div>
 			<div class="modal-body">
-                <form action="<?php echo constant('URL')?>Estudent/Store" method='POST' id="formulario">
+                <form action="<?php echo constant('URL')?>/Estudent/Store" method='POST' id="formulario">
                     <div class="form-group">
                         <label for="dni">Cedula</label>
-                        <input v-model='dni' name="dni" type="number" class="form-control" placeholder="C.I:" required>
+                        <input name="dni" type="number" class="form-control" placeholder="C.I:" required>
                     </div>
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input v-model='name' name="name" type="text" class="form-control" placeholder="Nombre" required>
+                        <input name="name" type="text" class="form-control" placeholder="Nombre" required>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Apellido</label>
-                        <input v-model='lastName' name="lastname" type="text" class="form-control" placeholder="Apellido" required>
+                        <input name="lastname" type="text" class="form-control" placeholder="Apellido" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Numero De Telefono</label>
-                        <input name="phone" value='0' type="number" class="form-control" placeholder="Telefono/Celular" required>
+                        <input name="phone"  type="number" class="form-control" placeholder="Telefono/Celular" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Correo</label> 

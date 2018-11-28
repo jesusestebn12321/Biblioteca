@@ -1,7 +1,26 @@
 <?php
+    include_once 'models/TableEstudent.php';
     class EstudentModel extends Model{
         public function __construct(){
             parent::__construct();
+        }
+        public function Showestudent(){
+            $items=[];
+            try{
+                $query= $this->db->connect()->query('SELECT * FROM estudents');
+                while($row = $query->fetch()){
+                    $item=new TableEstudent();
+                    $item->dni=$row['dni'];
+                    $item->name=$row['name'];
+                    $item->lastname=$row['lastname'];
+                    $item->phone=$row['phone'];
+                    $item->email=$row['email'];
+                    array_push($items, $item);
+                }
+                return $items;
+            }catch(PDOException $e){
+                return [];
+            }
         }
         public function insert($request){
             // ensertar datos de la db
@@ -17,9 +36,6 @@
                 ]);
                 return true;
             }catch (PDOException $e){
-                echo '<script>swal("Error", "Estudiante Registrado",{
-                    icon:"error"
-                });</script>';
                 return false;
             }
 
