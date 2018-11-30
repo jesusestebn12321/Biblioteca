@@ -15,14 +15,12 @@
     <script src="<?php echo constant('URL')?>/public/js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="<?php echo constant('URL')?>/public/js/vendor/bootstrap.min.js"></script>
     <script src="<?php echo constant('URL')?>/public/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src="<?php echo constant('URL')?>/public/js/vendor/vue.js"></script>
 </head>
 <body class='body'>
     <?php
         session_start();
-        if (empty($_SESSION['user'])) {
-            # code...
-        
+        if (!isset($_SESSION['user'])) {
+            # code... 
     ?>
     <header>
         <div class="container-fluid">
@@ -35,7 +33,7 @@
     </header>
     <div class="container-fluid">	
         <div class="row">
-            <div class="col-lg-6 col-lg-offset-3 panel app-panel-gray">
+            <div class="col-lg-6 col-lg-offset-3 panel app-panel-gray" style='top:10rem'>
                 <div class="panel-heading app-panel-gray">
                     <h2 class='center text-black'>Iniciar Sección</h2>
                 </div>
@@ -68,9 +66,13 @@
         </div>
     </div>
 </body>
-    <?php }else{
-
-}?>
+    <?php 
+    }else{
+        $this->mensaje;
+        $url=constant('URL');
+        header('location:'.$url.'/Dashboard');
+    }
+    ?>
 <script src="<?php echo constant('URL')?>/public/js/vendor/jquery-1.11.2.min.js"></script>
 <script src="<?php echo constant('URL')?>/public/js/vendor/bootstrap.min.js"></script>
 <script src="<?php echo constant('URL')?>/public/WOW-master/dist/wow.js"></script>

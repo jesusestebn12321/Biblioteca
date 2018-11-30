@@ -1,3 +1,4 @@
+<title>Book</title>
 <?php require 'views/layouts/newTemplate.php'; ?>
 <?php include 'views/modales/add.book.php'; ?>
 <?php include 'views/modales/asignarBook.php'; ?>
@@ -41,26 +42,36 @@
                             if ($book->status == 1) {
                                 # code...
                             ?>
-                            <tr id='app-tr' >
+                            <form action="#" methods='GET'>
+                            <tr id='tr<?php echo $book->id?>'>
+                                   <input type="hidden" id='id<?php echo $book->id?>' value='<?php echo $book->id;?>'>
                                 <td>
-                                   <p> <?php echo $book->code; ?> </p>
+                                <p class='hidden'><?php echo $book->code ?></p>
+                                    <input type="number" disabled id='Pcode<?php echo $book->id?>' value='<?php echo $book->code; ?>' style='border:none;background:none'>
+                                    <input type="number" id='code<?php echo $book->id?>'  class='form-control hidden' value='<?php echo $book->code;?>'>
                                 </td>
                                 <td> 
-                                    <p > <?php echo $book->autor; ?> </p>
+                                <p class='hidden'><?php echo $book->autor ?></p>
+                                    <input type="text" disabled id='Pautor<?php echo $book->id?>' value='<?php echo $book->autor; ?>' style='border:none;background:none'>
+                                    <input type="text" id='autor<?php echo $book->id?>' class='form-control hidden' value='<?php echo $book->autor;?>'>
                                 </td>
                                 <td>
-                                   <p> <?php echo $book->title; ?> </p>
+                                <p class='hidden'><?php echo $book->title ?></p>
+                                    <input type="text" disabled id='Ptitle<?php echo $book->id?>' value='<?php echo $book->title; ?>' style='border:none;background:none'>
+                                    <input type="text" id='title<?php echo $book->id?>' class='form-control hidden' value='<?php echo $book->title;?>'>
                                 </td>
                                 <td>
                                    <p> <?php if($book->status==1){echo 'Activo';} ?> </p>
                                 </td>
                                 <td>
-                                    <a class='btn btn-success' id='a' onClick='Entregar(<?php echo $book->id?>)' data-toggle="modal" data-target="#modalAsignarBook"  href="#"> <i class='fa fa-caret-square-o-up'></i></a>
-                                    <a class='btn btn-danger' href="#"> <i class='fa fa-remove'></i></a>
-                                    <a class='btn btn-warning' href="#"> <i class='fa fa-edit'></i></a>
+                                    <a class='btn btn-success' id='a' onClick='Asignar(<?php echo $book->id?>)' data-toggle="modal" data-target="#modalAsignarBook"  href="#"> <i class='fa fa-caret-square-o-up'></i></a>
+                                    <a class='btn btn-danger' onClick='Destroy(<?php echo $book->id?>)'  href="#!"> <i class='fa fa-remove'></i></a>
+                                    <a class='btn btn-warning' id='btnEdit1<?php echo $book->id?>' onClick='Edit(<?php echo $book->id?>)' href="#!"> <i class='fa fa-edit'></i></a>
+                                    <a class='btn btn-info hidden' id='btnEdit2<?php echo $book->id?>' onClick='Edit(<?php echo $book->id?>)' href="#!"> <i class='fa fa-edit'></i></a>
                                 </td>
-                        <?php } }?>
+                                </form>
                             </tr>  
+                        <?php } }?>
                         </tbody>
                         </tfoot>
                             <tr>

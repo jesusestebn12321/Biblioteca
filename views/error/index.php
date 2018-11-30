@@ -1,5 +1,5 @@
-<title>Error404</title>
 <?php require 'views/layouts/newTemplate.php'; ?>
+<title>Error404</title>
 <main>
 	<div class='app-error' style='width:50em;height:1rem;'>
 		<div id='app-error-1' style='position:absolute;top:20%;left:50%'>

@@ -6,16 +6,15 @@
 				<h3 class='center'>Retirar Libro <span class="fa fa-book"></span></h3>
 			</div>
 			<div class="modal-body">
-                <form action="<?php echo constant('URL')?>/RetiroEntrega" method='POST' id="formulario">
-                    <input type="hidden" id='asignarBook' value=''  >
+                <form action="#" method='POST' id="formulario">
+                    <input type="text" name='idBook' id='idBook' value=''>
                     <div class="form-group">
                         <label for="dni">Cedula</label>
-                        <input name="dni" type="number" class="form-control" placeholder="C.I:" required>
+                        <input id='dniAsignar' name='dniAsignar' type="number" class="form-control" require placeholder="C.I:" required>
                     </div>
                     <div class="app-modal-footer modal-footer">
-                        <input type="submit" id="" value="Save" class="btn btn-success">
+                        <input type="submit" id="btnRetirar" value="Save" class="btn btn-success">
                     </form>
-                    <button class="btn btn-danger" data-dismiss="modal">Salir <span class="fa  fa-chevron-circle-right"></span></button>
                 </div>
             </div>
 		</div>

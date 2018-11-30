@@ -4,5 +4,5 @@
         public $code;
         public $autor;
         public $title;
-
+        public $status;
     }

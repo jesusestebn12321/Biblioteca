@@ -5,6 +5,7 @@
             parent::__construct();
             $this->view->mensaje= ''; 
             $this->view->book= [];
+            $url=constant('URL');
         }
         public function render(){
             $this->view->render('book/index');
@@ -28,26 +29,45 @@
                 'status'  => $status
             ])
             ){
-                $mensaje= '<script>swal("Success", "Nuevo Libro Registrado",{
-                icon:"success"
-                });</script>';
-            }else{
                 $mensaje= '<script>swal("Error", "Libro Registrado",{
                     icon:"error"
                 });</script>';
+            }else{
+                $mensaje= '<script>swal("Success", "Nuevo Libro Registrado",{
+                    icon:"success"
+                });</script>';
+               
             }
             $this->view->mensaje=$mensaje;
-            $this->index();
+            header('location:'.$url.'/Biblioteca/Book/Index');
         }
-        public function Update(){
-            echo '<h4>metodo Updata</h4>';
+        public function Edit(){
+            $code   =  $_POST['code'];
+            $autor   =  $_POST['autor'];
+            $title  =  $_POST['title'];
+            $id  =  $_POST['id'];
+            if($this->model->update([
+                'id'     => $id,
+                'code'   => $code,
+                'autor'  => $autor,
+                'title'  => $title,
+            ])
+            ){
+                $book=new TableBook();
+                $book->code=$code;
+                $book->autor=$autor;
+                $book->title=$title;
+                exit('Exito');
+            }else{
+                exit('Error');
+            }
         }
-        public function Edit($request, $id){
-            echo '<h4>metodo edit</h4>';
-        }
-        public function Destroy($request){
-            $requests=$_GET['request'];
-            
-            echo '<h4>'.$requests.'</h4>';
+        public function Destroy(){
+            $id=$_POST['id'];
+            if($this->model->Delete(['id' => $id ])){
+                exit('error');
+            }else{
+                exit('Exito');
+            }
         }
     }

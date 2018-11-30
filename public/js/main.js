@@ -1,81 +1,212 @@
 $('[data-toggle="tooltip"]').tooltip();
 $("#Book").DataTable();
 $('#estudent').DataTable();
-	function Asignar(id_row){
-		$('#asignarBook').val(id_row);
-	}
-var viewsEstudent=new Vue({
-	el:'#viewsEstudents',
-	data:{
-		name:'',
-		lastName:'',
-		dni:'',
-		phone:'',
-		email:'',
-		nombre:'Esteban',
-		apellido:'Villalta',
-		cedula:'25237118',
-		telefono:'0000-000-00-00',
-		correo:'jesusnoteimporta@example.com',
-		editStatus:false,
-		primerTitulo:"<h1 class='app-sub-titulo'> <i class='fa fa-users'></i> <span class='app-resaltar-letras'>E</span>studiantes <span class='app-resaltar-letras'>R</span>egistrados</h1>",
-		titulo:'Add Estudiante',
-		descripcion:'Agrega mas Estudiantes al reguistro',
-		btn:'<a class="btn  bg-blue-gradient  btn-block " id="addBook" data-toggle="modal" data-target="#modalAddEstudents" href="#!">Add <i class="fa fa-plus"></i></a>'
-	},
-	methods:{
-		editarEstudent(){
-			this.editStatus= true;
-		},
-		upDate(cedula,nombre,apellido,correo,telefono){
-			this.editStatus=false;
-			this.cedula=cedula;
-			this.nombre=nombre;
-			this.apellido=apellido;
-			this.correo=correo;
-			this.telefono=telefono;
-		}
-	}
-});
-var book=new Vue({
-	el:'#book',
-	data:{
-		libro:[
-			{
-				id:1,
-				codigo:2212626,
-				titulo:'Elcan',
-				autor:'Canserbero',
-				editStatus:false,		
-			},
-			{
-				id:2,
-				codigo:2212626,
-				titulo:'Elcan',
-				autor:'Canserbero',
-				editStatus:false,		
+function Entregar(id_row){
+	var id=$('#idBook'+id_row);
+	var id_row=$('#id_row'+id_row);
+	alert(id.val() + id_row.val());
+	$.ajax({
+		url: 'http://localhost/Biblioteca/Retiro/Entrega',
+		method: 'POST',
+		dataType: 'text',
+		data: {
+			id: id.val(),
+			id_row: id_row.val(),
+		},success: function (respuesta) {
+			$('#tr'+id_row).toggleClass('hidden');
+			swal(respuesta, {
+				icon: "success",
+			});
+		}	
+	});
+}
+function Asignar(id_row){
+	var id=$('#idBook');
+	var dni=$('#dniAsignar');
+	id.val(id_row);
+	$('#btnRetirar').click(function(){
+		$('#tr'+id_row).toggleClass('hidden');
+		$.ajax({
+			url: 'http://localhost/Biblioteca/Retiro/Retiros',
+			method: 'POST',
+			dataType: 'text',
+			data: {
+				id: $('#idBook').val(),
+				dni: $('#dniAsignar').val(),
+			},success: function (respuesta) {
+				$('#tr'+id_row).toggleClass('hidden');
+				swal(respuesta, {
+					icon: "success",
+				});
 			}
-		],
 		
-		panelTitulo:'Add Libro',
-		panelDescripcion:'Agrega mas Libros al reguistro',
-		btn:'<a data-toggle="modal" data-target="#modalAddBooks"  href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>'
-	},
-	methods:{
-		
-		destroyBook(id){
-			this.libro.splice(id, 1);
-		},
-		editarBook(id){
-			// let editar=this.libro[id];
-			this.editStatus= true;
-		},
-		upDateBook(codigo,titulo,autor){
-			this.editStatus=false;
-			this.cedula=cedula;
-			this.titulo=titulo;
-			this.autor=autor;
-		}
-	}
-});
+		});
+	});
+}
+function Edit(id_row){
+	var Pcode= $('#Pcode'+id_row);
+	var Pautor= $('#Pautor'+id_row);
+	var Ptitle= $('#Ptitle'+id_row);
+	
+	var code= $('#code'+id_row);
+	var autor= $('#autor'+id_row);
+	var title= $('#title'+id_row);
+	var id=$('#id'+id_row);
+	
+	Pcode.toggleClass('hidden');
+	Pautor.toggleClass('hidden');
+	Ptitle.toggleClass('hidden');
 
+
+	code.toggleClass('hidden');
+	autor.toggleClass('hidden');
+	title.toggleClass('hidden');
+
+	
+	$('#btnEdit1'+id_row).toggleClass('hidden');
+	$('#btnEdit2'+id_row).toggleClass('hidden');
+	
+	$('#btnEdit2'+id_row).click(function(){
+		$.ajax({
+			type: "POST",
+			url: 'http://localhost/Biblioteca/Book/Edit',
+			dataType: "text",
+			data:{			
+				code:code.val(),
+				autor:autor.val(),
+				title:title.val(),
+				id:id.val()
+			},success: function(respuesta) {
+				Pcode.val(code.val())
+				Pautor.val(autor.val());
+				Ptitle.val(title.val());
+				swal(respuesta, {
+					icon:"success",
+				});
+			}
+		});	
+	});
+
+}
+function EditEstudent(id_row){
+	var id=$('#id'+id_row);
+	var dni= $('#dni'+id_row);
+	var name= $('#name'+id_row);
+	var lastname= $('#lastname'+id_row);
+	var phone= $('#phone'+id_row);
+	var email= $('#email'+id_row);
+
+	var Pdni=$('#Pdni'+id_row);
+	var Pname=$('#Pname'+id_row);
+	var Plastname=$('#Plastname'+id_row);
+	var Pphone=$('#Pphone'+id_row);
+	var Pemail=$('#Pemail'+id_row);
+
+	Pdni.toggleClass('hidden');
+	Pname.toggleClass('hidden');
+	Plastname.toggleClass('hidden');
+	Pphone.toggleClass('hidden');
+	Pemail.toggleClass('hidden');
+	
+
+	dni.toggleClass('hidden');
+	name.toggleClass('hidden');
+	lastname.toggleClass('hidden');
+	phone.toggleClass('hidden');
+	email.toggleClass('hidden');
+	
+	$('#btnEditEstudent1'+id_row).toggleClass('hidden');
+	$('#btnEditestudent2'+id_row).toggleClass('hidden');
+	
+	$('#btnEditestudent2'+id_row).click(function(){
+		$.ajax({
+			type: "POST",
+			url: 'http://localhost/Biblioteca/Estudent/Edit',
+			dataType: "text",
+			data:{			
+				id:id.val(),
+				dni:dni.val(),
+				name:name.val(),
+				lastname:lastname.val(),
+				phone:phone.val(),
+				email:email.val()
+			},success: function(respuesta) {
+				Pdni.val(dni.val());
+				Pname.val(name.val());
+				Plastname.val(lastname.val());
+				Pphone.val(phone.val());
+				Pemail.val(email.val());
+				swal(respuesta, {
+					icon:"success",
+				});
+			}
+		});	
+	});
+
+}
+function Destroy(id_row){
+	var id=$('#id'+id_row);
+	var title=$('#title'+id_row);
+	swal({
+		title: "¿Desea eliminar este Libro "+ title.val() +"?",
+		text: "El Libro se eliminara en caso de que precione OK!",
+		icon: "warning",
+		buttons: true,
+		dangerMode: true,
+	}).then((willDelete) => {
+		if (willDelete) {
+			$.ajax({
+				url: 'http://localhost/Biblioteca/Book/Destroy',
+				method: 'POST',
+				dataType: 'text',
+				data: {
+					id: id.val()
+				},success: function (respuesta) {
+					$('#tr'+id_row).addClass('hidden');
+					swal(respuesta, {
+						icon: "success",
+					});
+				}
+			});
+			
+		}else{
+
+			swal("El Libro esta a salvo!",{
+				icon:"info",
+			});
+		}
+	});
+}
+function DestroyEstudent(id_row){
+	var id=$('#id'+id_row);
+	var dni=$('#dni'+id_row);
+	swal({
+		title: "¿Desea eliminar el Estudiante con el numero de C.I: "+ dni.val() +"?",
+		text: "El Estudiante se eliminara en caso de que precione OK!",
+		icon: "warning",
+		buttons: true,
+		dangerMode: true,
+	}).then((willDelete) => {
+		if (willDelete) {
+			$.ajax({
+				url: 'http://localhost/Biblioteca/Estudent/Destroy',
+				method: 'POST',
+				dataType: 'text',
+				data: {
+					id: id.val()
+				},success: function (respuesta) {
+					$('#tr'+id_row).addClass('hidden');
+					swal(respuesta, {
+						icon: "success",
+					});
+				}
+			});
+			
+		}else{
+
+			swal("El Estudiante esta a salvo!",{
+				icon:"info",
+			});
+		}
+	});
+}

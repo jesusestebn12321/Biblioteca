@@ -1,3 +1,4 @@
+<title>Admin | Entregas</title>
 <?php require 'views/layouts/newTemplate.php'; ?>
 <main>
 <div class='container'>
@@ -23,13 +24,15 @@
                         <tbody>
                         <?php foreach ($this->book as $row) {
                             $book=new TableBook();
-                            $book=$row;
-                            if ($book->status == 0) {
+                            $retiro=new TableRetiro_Entrega();
+                            $retiro=$row;
+                            if (0 == 0) {
                                 # code...
                             ?>
-                            <tr id='app-tr' >
+                            <tr id='tr<?php echo $book->id; ?>' >
                                 <td>
-                                   <p> <?php echo $book->code; ?> </p>
+                                    <input type="text" value='<?php echo $book->id?>' id='id_row<?php echo $book->id?>'>
+                                   <p>  <?php echo $retiro->book->autor; ?> </p>
                                 </td>
                                 <td> 
                                     <p > <?php echo $book->autor; ?> </p>
@@ -41,7 +44,7 @@
                                    <p> <?php if($book->status==0){echo 'Retirado';} ?> </p>
                                 </td>
                                 <td>
-                                    <a class='btn btn-success' id='a' onClick='Entregar(<?php echo $book->id?>)' href="#" data-toggle="modal" data-target="#modalAsignarBook"  href="#"> <i class='fa fa-caret-square-o-up'></i></a>
+                                    <a class='btn btn-success' onClick='Entregar(<?php echo $book->id?>)' href="#" data-toggle="modal" data-target="#modalAsignarBook"  href="#"> <i class='fa fa-caret-square-o-up'></i></a>
                                 </td>
                         <?php } }?>
                             </tr>  

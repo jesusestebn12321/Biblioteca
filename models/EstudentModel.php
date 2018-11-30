@@ -4,12 +4,13 @@
         public function __construct(){
             parent::__construct();
         }
-        public function Showestudent(){
+        public function LoadEstudent(){
             $items=[];
             try{
                 $query= $this->db->connect()->query('SELECT * FROM estudents');
                 while($row = $query->fetch()){
                     $item=new TableEstudent();
+                    $item->id=$row['id'];
                     $item->dni=$row['dni'];
                     $item->name=$row['name'];
                     $item->lastname=$row['lastname'];
@@ -23,8 +24,6 @@
             }
         }
         public function insert($request){
-            // ensertar datos de la db
-            // echo '<h1>hola</h1>';
             try{
                 $query= $this->db->connect()->prepare('INSERT INTO estudents (dni, name, lastname, phone, email) VALUE (:dni, :name, :lastname, :phone, :email)');
                 $query->execute([
@@ -38,6 +37,26 @@
             }catch (PDOException $e){
                 return false;
             }
-
+        }
+        public function Update($request){
+            $query= $this->db->connect()->prepare('UPDATE estudents SET dni=:dni, name=:name, lastname=:lastname, phone=:phone, email=:email WHERE id=:id');
+            try{
+                $query->execute([
+                    'id'        => $request['id'],
+                    'dni'       => $request['dni'],
+                    'name'      => $request['name'],
+                    'lastname'  => $request['lastname'],
+                    'phone'     => $request['phone'],
+                    'email'     => $request['email']
+                ]);
+                return true;
+            }catch(PDOException $e){
+                return false;
+            }
+        }
+        public function Delete($request){
+            $query= $this->db->connect()->prepare('DELETE FROM estudents WHERE id=:id');
+            $query->execute(['id' => $request['id']]);
+            
         }
     }

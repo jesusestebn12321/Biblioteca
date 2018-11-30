@@ -1,6 +1,6 @@
-<a href="../../index2.html" class="logo">
+<a href="<?php echo constant('URL')?>/Dashboard" class="logo">
   <span class="logo-mini"><b>ASI</b></span>
-  <span class="logo-lg"><b>B</b>iblioteca</span>
+  <span class="logo-lg"><b>S</b>ala de <b>L</b>ectura</span>
 </a>
 <nav class="navbar navbar-static-top">
   <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -21,14 +21,14 @@
                 <img src="<?php echo constant('URL')?>/public/img/logo.png" class="img-circle" alt="User Image">
 
                 <p>
-                  Biblioteca A.S.I
+                  Sala de Lectura A.S.I
                   <small>Copyright © 2018 JEVG</small>
                 </p>
               </li>
               
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo constant('URL')?>/Login/Out" class="btn btn-default btn-flat">Sign out</a>
                 </div>
                 <div class="pull-left">
                   <a href="<?php echo constant('URL')?>/Help" class="btn btn-default btn-flat">Help</a>

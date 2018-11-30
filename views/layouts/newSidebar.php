@@ -4,7 +4,7 @@
             <img src="<?php echo constant('URL')?>/public/img/logo.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-            <p>Biblioteca A.S.I</p>                     
+            <p>Sala de Lectura A.S.I</p>                     
         </div>
     </div>
     <ul class="sidebar-menu">
@@ -14,22 +14,19 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             </a>
         </li>
-        
         <li class="treeview">
             <a href='<?php echo constant("URL")?>/Estudent/Index' >
-                <i class="fa fa-users"></i>Estudiantes
+                <i class="fa fa-users"></i><span> Estudiantes</span>
             </a>
         </li>
-        
         <li class="treeview">
             <a href='<?php echo constant("URL")?>/Book/Index' >
-                <i class="fa fa-book"></i>Libros
+                <i class="fa fa-book"></i><span> Libros</span>
             </a>
         </li>
-        
         <li class="treeview">
             <a href='<?php echo constant("URL")?>/Entrega/Index' >
-                <i class="fa fa-shopping-cart"></i>Entregas
+                <i class="fa fa-shopping-cart"></i><span> Entregas</span>
             </a>
         </li>
         

@@ -38,7 +38,7 @@
                     <div class="icon" style='margin-top:1rem'>
                         <i class="fa fa-shopping-cart"></i>
                     </div>
-                    <a href="<?php echo constant('URL')?>/RetiroEntrega/Index" class="small-box-footer">IR <i class="fa fa-arrow-eye"></i></a>
+                    <a href="<?php echo constant('URL')?>/Entrega/Index" class="small-box-footer">IR <i class="fa fa-arrow-eye"></i></a>
                 </div>
             </div>
         

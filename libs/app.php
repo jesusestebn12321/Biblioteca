@@ -1,7 +1,6 @@
  <?php
     class app{
         function __construct(){
-            // echo '<h1>App</h1>';
             $url= isset($_GET['url']) ? $_GET['url']:null;
             $url= rtrim($url, '/');
             $url= explode('/',$url);
@@ -20,8 +19,23 @@
                 require_once $fileControllers; 
                 $controller= new $url[0];
                 $controller->loadModel($url[0]);
+                $nparam=sizeof($url);
+                if($nparam>1){
+                    if($nparam>2){
+                        $param=[];
+                        for($i=2;$i<$nparam;$i++){
+                            array_push($param,$url[$i]);
+                        }
+                        $controller->{$url[1]}($param);
+                    }else {
+                        $controller->{$url[1]}();
+                    }
+                }else{
+                    $controller->render();
+                }
+
+
                 if (isset($url[1])) {
-                    $controller->{$url[1]}();
                 }else{
                     $controller->render();
                 }

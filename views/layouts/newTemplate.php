@@ -19,8 +19,11 @@ $newTe=new newTemplate();
                 <link href="<?php echo constant("URL")?>/public/css/main.css" rel="stylesheet" type="text/css"/>
 
                 <script src="<?php echo constant("URL")?>/public/sweetalert/docs/assets/sweetalert/sweetalert.min.js"></script>
-                <script src="<?php echo constant("URL")?>/public/js/vendor/vue.js"></script>
             </head>
+            <?php
+                session_start();
+                if (isset($_SESSION['user'])){
+                ?>
             <body class="hold-transition skin-blue sidebar-mini">
                 <div class="wrapper">
                     <header class="main-header">
@@ -32,8 +35,12 @@ $newTe=new newTemplate();
                     <div class="content-wrapper">      
                         
                             <?php 
-                        }
+                }         
+            }
                         function __destruct(){
+                            
+                if (isset($_SESSION['user'])){
+                    # code... 
                         ?>
                     </div>
                     <footer class="main-footer">
@@ -49,9 +56,7 @@ $newTe=new newTemplate();
                 <!-- DataTables -->
                 <script src="<?php echo constant("URL")?>/public/admin-lte/plugins/datatables/jquery.dataTables.min.js"></script>
                 <script src="<?php echo constant("URL")?>/public/admin-lte/plugins/datatables/dataTables.bootstrap.min.js"></script>
-                <!-- SlimScroll -->
-                <script src="<?php echo constant("URL")?>/public/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-                <!-- FastClick -->
+               <!-- FastClick -->
                 <script src="<?php echo constant("URL")?>/public/admin-lte/plugins/fastclick/fastclick.js"></script>
                 <!-- AdminLTE App -->
                 <script src="<?php echo constant("URL")?>/public/admin-lte/dist/js/app.min.js"></script>
@@ -59,8 +64,12 @@ $newTe=new newTemplate();
                 <script src="<?php echo constant("URL")?>/public/admin-lte/dist/js/demo.js"></script>
                 <script src="<?php echo constant("URL")?>/public/js/main.js"></script>
             </body>
-        </html>
-            <?php 
-            }
+            </html>
+        <?php 
+            }else{
+                $url=constant('URL');
+                header('location:'.$url.'/Login');
+            }  
         }
+    }
         ?>  

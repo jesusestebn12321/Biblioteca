@@ -12,7 +12,7 @@
                 <div class="small-box bg-aqua">
                     <div class="inner">
                         <h3>Add Estudiante</h3>
-                        <p>Registra mas estudiantes a la Biblioteca</p>
+                        <p id='tr<?php echo $estudents->id?>'>Registra mas estudiantes a la Biblioteca</p>
                     </div>
                     <div class="icon" style='margin-top:2rem'>
                         <i class="fa fa-users"></i>
@@ -28,8 +28,8 @@
                                 <th class="text-center">Cedula</th>
                                 <th class="text-center">Nombre</th>
                                 <th class="text-center">Apellido</th>
-                                <th class="text-center">Correo</th>
                                 <th class="text-center">Telefono/Celular</th>
+                                <th class="text-center">Correo</th>
                                 <th class="text-center"></th>
                             </tr>
                         </thead>
@@ -38,25 +38,37 @@
                                 $estudents=new TableEstudent();
                                 $estudents=$row;
                                 ?>
-                                <tr id='app-tr'>
+                                <tr id='tr<?php echo $estudents->id ?>'>
                                     <td>
-                                        <p><?php echo $estudents->dni ?></p>
+                                        <input id='id<?php echo $estudents->id ?>' value='<?php echo $estudents->id ?>' type="hidden">
+                                        <p class='hidden'><?php echo $estudents->dni ?></p>
+                                        <input type="number" disabled id='Pdni<?php echo $estudents->id?>' value='<?php echo $estudents->dni ?>' style='border:none;background:none'>                                      
+                                        <input id='dni<?php echo $estudents->id ?>' value='<?php echo $estudents->dni ?>' class='hidden form-control' type="number">
                                     </td>
                                     <td>
-                                        <p><?php echo $estudents->name ?></p>
+                                        <p class='hidden'><?php echo $estudents->name ?></p>
+                                        <input type="text" disabled id='Pname<?php echo $estudents->id?>' value='<?php echo $estudents->name ?>' style='border:none;background:none'>                                      
+                                        <input id='name<?php echo $estudents->id?>' value='<?php echo $estudents->name ?>' class='hidden form-control' type="text">
                                     </td>
                                     <td>
-                                        <p><?php echo $estudents->lastname ?></p>
+                                        <p class='hidden'><?php echo $estudents->lastname ?></p>
+                                        <input type="text" disabled id='Plastname<?php echo $estudents->id?>' value='<?php echo $estudents->lastname ?>' style='border:none;background:none'>                                      
+                                        <input id='lastname<?php echo $estudents->id?>' value='<?php echo $estudents->lastname?>' class='hidden form-control' type="text">
                                     </td>
                                     <td> 
-                                        <p> <?php echo $estudents->phone ?></p>
+                                        <p class='hidden'><?php echo $estudents->phone ?></p>
+                                        <input type="number" disabled id='Pphone<?php echo $estudents->id?>' value='<?php echo $estudents->phone ?>' style='border:none;background:none'>                                      
+                                        <input id='phone<?php echo $estudents->id?>' value='<?php echo $estudents->phone?>' class='hidden form-control' type="number">
                                     </td>
                                     <td>
-                                        <p><?php echo $estudents->email ?></p>
+                                        <p class='hidden'><?php echo $estudents->email ?></p>
+                                        <input type="email" disabled id='Pemail<?php echo $estudents->id?>' value='<?php echo $estudents->email ?>' style='border:none;background:none'>                                      
+                                        <input id='email<?php echo $estudents->id?>' value='<?php echo $estudents->email?>' class='hidden form-control' type="email">
                                     </td>
                                     <td>
-                                        <a class='btn btn-danger'  href="#!"> <i class='fa fa-remove'></i></a>
-                                        <a class='btn btn-warning' href="#!"> <i class='fa fa-edit'></i></a>
+                                    <a class='btn btn-danger' onClick='DestroyEstudent(<?php echo $estudents->id?>)'  href="#!"> <i class='fa fa-remove'></i></a>
+                                    <a class='btn btn-warning' id='btnEditEstudent1<?php echo $estudents->id?>' onClick='EditEstudent(<?php echo $estudents->id?>)' href="#!"> <i class='fa fa-edit'></i></a>
+                                    <a class='btn btn-info hidden' id='btnEditestudent2<?php echo $estudents->id?>' onClick='EditEstudent(<?php echo $estudents->id?>)' href="#!"> <i class='fa fa-edit'></i></a>
                                     </td>
                                 </tr>   
                             <?php }?>

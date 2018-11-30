@@ -1,7 +1,6 @@
 <?php
     class Controller{
         public function __construct(){
-            // echo '<h2>controllador base</h2>';
             $this->view= new View();
         }
         function loadModel($model){
