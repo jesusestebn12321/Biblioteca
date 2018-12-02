@@ -5,7 +5,7 @@
 <main>
 <div class='container'>
         <div class="row"> 
-            <div class='center'> <?php $this->mensaje?> </div>
+            <div class='center'> <?php echo $this->mensaje ?> </div>
             <div class='col-xs-6 col-lg-6 col-md-6'>
                 <h1 class='app-sub-titulo'> <i class='fa fa-book'></i> <b>L</b>ibro <b>ASI</b></h1>
             </div>
@@ -42,7 +42,7 @@
                             if ($book->status == 1) {
                                 # code...
                             ?>
-                            <form action="#" methods='GET'>
+                            <form action="#" methods='POST'>
                             <tr id='tr<?php echo $book->id?>'>
                                    <input type="hidden" id='id<?php echo $book->id?>' value='<?php echo $book->id;?>'>
                                 <td>

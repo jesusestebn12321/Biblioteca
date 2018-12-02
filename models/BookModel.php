@@ -1,5 +1,6 @@
 <?php
 include_once 'models/TableBook.php';
+include_once 'models/TableEstudent.php';
     class BookModel extends Model{
         public function __construct(){
             parent::__construct();
@@ -17,6 +18,25 @@ include_once 'models/TableBook.php';
                     $item->status=$row['status'];
                     array_push($items, $item);
                     
+                }
+                return $items;
+            }catch(PDOException $e){
+                return [];
+            }
+        }
+        public function LoadEstudent(){
+            $items=[];
+            try{
+                $query= $this->db->connect()->query('SELECT * FROM estudents');
+                while($row = $query->fetch()){
+                    $item=new TableEstudent();
+                    $item->id=$row['id'];
+                    $item->dni=$row['dni'];
+                    $item->name=$row['name'];
+                    $item->lastname=$row['lastname'];
+                    $item->phone=$row['phone'];
+                    $item->email=$row['email'];
+                    array_push($items, $item);
                 }
                 return $items;
             }catch(PDOException $e){
@@ -52,7 +72,7 @@ include_once 'models/TableBook.php';
             }
         }
         public function Delete($request){
-            $query= $this->db->connect()->prepare('DELETE FROM books WHERE id=:id');
+            $query= $this->db->connect()->prepare('DELETE r, b FROM retiro_entrega AS r LEFT JOIN books AS b ON r.estudent_id=b.id  WHERE r.estudent_id=:id');
             $query->execute(['id' => $request['id']]);
             
         }

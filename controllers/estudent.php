@@ -30,7 +30,7 @@
                 });</script>' ;
             }
             $this->view->mensaje=$mensaje;
-            $this->view->render('estudent/index');
+            header('location:'.$url.'/Biblioteca/Estudent/Index');
         }
         public function Edit(){
             $id        =  $_POST['id'];

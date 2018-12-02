@@ -1,10 +1,10 @@
 <?php
-
     class Book extends Controller{
         public function __construct(){
             parent::__construct();
             $this->view->mensaje= ''; 
             $this->view->book= [];
+            $this->view->estudent=[];
             $url=constant('URL');
         }
         public function render(){
@@ -12,12 +12,14 @@
         }
         public function Index(){
             $book= $this->model->LoadBook();
+            $estudent= $this->model->LoadEstudent();
             $this->view->book=$book;
+            $this->view->estudent=$estudent;
             $this->view->render('book/index');
         }
         public function Store(){
             // echo 'estoy en el controlador';
-            $mensaje='';
+            
             $code   =  $_POST['code'];
             $autor   =  $_POST['autor'];
             $title  =  $_POST['title'];
@@ -29,14 +31,7 @@
                 'status'  => $status
             ])
             ){
-                $mensaje= '<script>swal("Error", "Libro Registrado",{
-                    icon:"error"
-                });</script>';
-            }else{
-                $mensaje= '<script>swal("Success", "Nuevo Libro Registrado",{
-                    icon:"success"
-                });</script>';
-               
+              
             }
             $this->view->mensaje=$mensaje;
             header('location:'.$url.'/Biblioteca/Book/Index');

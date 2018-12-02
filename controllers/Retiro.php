@@ -10,10 +10,10 @@
         }
         public function Retiros(){
             $book_id =  $_POST['id'];
-            $dni     =  $_POST['dni'];
+            $estudent_id     =  $_POST['estudent_id'];
             if($this->model->Retiro([
                 'book_id'    => $book_id,
-                'dni'=> $dni
+                'estudent_id'=> $estudent_id
             ])){
                 exit('Exito');
             }else{
@@ -21,10 +21,11 @@
             }
         }
         public function Entrega(){
-            $book_id =  $_POST['id'];
+            $book_id =  $_POST['id_book'];
             $id_row =  $_POST['id_row'];
-            if($this->model->Entregar([
-                'book_id' => $book_id
+            if($this->model->Entrega([
+                'book_id' => $book_id,
+                'id_row' => $id_row
             ])){
                 exit('Exito');
             }else{

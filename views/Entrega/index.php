@@ -22,31 +22,41 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach ($this->book as $row) {
+                        <?php 
+                        foreach ($this->entrega as $row) {
+                            foreach ($this->book as $rows) {
                             $book=new TableBook();
-                            $retiro=new TableRetiro_Entrega();
-                            $retiro=$row;
-                            if (0 == 0) {
-                                # code...
+                            $book=$rows;
+                            $entrega=new TableRetiro_Entrega();
+                            $entrega=$row;
+                            if($entrega->book_id == $book->id){
                             ?>
-                            <tr id='tr<?php echo $book->id; ?>' >
+                            <form action="#" methods='GET'>
+                            <tr id='tr<?php echo $entrega->id ?>'>
                                 <td>
-                                    <input type="text" value='<?php echo $book->id?>' id='id_row<?php echo $book->id?>'>
-                                   <p>  <?php echo $retiro->book->autor; ?> </p>
+                                    <p>
+                                    <input type="hidden" value='<?php echo $entrega->id ?>' id='id_row<?php echo $entrega->id ?>'>
+                                    <input type="hidden" value='<?php echo $book->id ?>' id='idBook<?php echo $entrega->id ?>'>
+                                    <?php echo $book->code ?>
+                                    </p>
                                 </td>
                                 <td> 
-                                    <p > <?php echo $book->autor; ?> </p>
+                                    <p><?php echo $book->autor ?></p>
                                 </td>
                                 <td>
-                                   <p> <?php echo $book->title; ?> </p>
+                                    <p><?php echo $book->title ?></p>
                                 </td>
                                 <td>
-                                   <p> <?php if($book->status==0){echo 'Retirado';} ?> </p>
+                                   <p> <?php if($book->status!=1){echo 'Retirado';} ?> </p>
                                 </td>
                                 <td>
-                                    <a class='btn btn-success' onClick='Entregar(<?php echo $book->id?>)' href="#" data-toggle="modal" data-target="#modalAsignarBook"  href="#"> <i class='fa fa-caret-square-o-up'></i></a>
+                                    <a class='btn btn-success' id='a' onClick='Entregar(<?php echo $entrega->id ?>)'  href="#"> <i class='fa fa-caret-square-o-up'></i></a>
                                 </td>
-                        <?php } }?>
+                                </form>
+                            </tr>  
+                        <?php } 
+                         }
+                        }  ?>
                             </tr>  
                         </tbody>
                         </tfoot>

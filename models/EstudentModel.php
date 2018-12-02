@@ -55,7 +55,7 @@
             }
         }
         public function Delete($request){
-            $query= $this->db->connect()->prepare('DELETE FROM estudents WHERE id=:id');
+            $query= $this->db->connect()->prepare('DELETE r, e FROM retiro_entrega AS r LEFT JOIN estudents AS e ON r.estudent_id=e.id  WHERE r.estudent_id=:id');
             $query->execute(['id' => $request['id']]);
             
         }

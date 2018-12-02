@@ -7,29 +7,35 @@ include_once 'models/TableRetiro_Entrega.php';
         }
         public function LoadBook(){
             $items=[];
-            $rowss=[];
             try{
-                // $query= $this->db->connect()->query('SELECT * FROM books');
-                // while($row = $query->fetch()){
-                //     $item=new TableBook();
-                //     $item->id=$row['id'];
-                //     $item->code=$row['code'];
-                //     $item->autor=$row['autor'];
-                //     $item->title=$row['title'];
-                //     $item->status=$row['status'];
-
-                //     array_push($items, $item);
-                $querys= $this->db->connect()->query('SELECT * FROM retiro_entrega');
-                while($row = $querys->fetch()){
-                    $rows=new TableRetiro_Entrega();
-                    $rows->id=$row['id'];
-                    $rows->dni=$row['dni'];
-                    $rows->book_id=$row['book_id'];
+                $query= $this->db->connect()->query('SELECT * FROM books');
+                while($row = $query->fetch()){
+                    $item=new TableBook();
+                    $item->id=$row['id'];
+                    $item->code=$row['code'];
+                    $item->autor=$row['autor'];
+                    $item->title=$row['title'];
+                    $item->status=$row['status'];
+                    array_push($items, $item);
                     
-                    array_push($rowss, $rows);
-
                 }
-                return $rowss;
+                return $items;
+            }catch(PDOException $e){
+                return [];
+            }
+        }
+        public function LoadEntrega(){
+            $items=[];
+            try{
+                $query= $this->db->connect()->query('SELECT * FROM retiro_entrega');
+                while($row = $query->fetch()){
+                    $item=new TableRetiro_Entrega();
+                    $item->id=$row['id'];
+                    $item->book_id=$row['book_id'];
+                    array_push($items, $item);
+                    
+                }
+                return $items;
             }catch(PDOException $e){
                 return [];
             }

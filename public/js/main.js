@@ -2,46 +2,46 @@ $('[data-toggle="tooltip"]').tooltip();
 $("#Book").DataTable();
 $('#estudent').DataTable();
 function Entregar(id_row){
-	var id=$('#idBook'+id_row);
+	var id_book=$('#idBook'+id_row);
 	var id_row=$('#id_row'+id_row);
-	alert(id.val() + id_row.val());
 	$.ajax({
 		url: 'http://localhost/Biblioteca/Retiro/Entrega',
 		method: 'POST',
 		dataType: 'text',
 		data: {
-			id: id.val(),
-			id_row: id_row.val(),
+			id_book: id_book.val(),
+			id_row: id_row.val()
 		},success: function (respuesta) {
-			$('#tr'+id_row).toggleClass('hidden');
+			$('#tr'+ id_row.val()).toggleClass('hidden');
 			swal(respuesta, {
 				icon: "success",
 			});
 		}	
 	});
 }
-function Asignar(id_row){
+function AsignarBook(id_row){
 	var id=$('#idBook');
-	var dni=$('#dniAsignar');
-	id.val(id_row);
-	$('#btnRetirar').click(function(){
-		$('#tr'+id_row).toggleClass('hidden');
-		$.ajax({
+	var id_estudent=$('#id'+id_row);
+	
+	$.ajax({
 			url: 'http://localhost/Biblioteca/Retiro/Retiros',
 			method: 'POST',
 			dataType: 'text',
 			data: {
-				id: $('#idBook').val(),
-				dni: $('#dniAsignar').val(),
+				id: id.val(),
+				estudent_id: id_estudent.val(),
 			},success: function (respuesta) {
-				$('#tr'+id_row).toggleClass('hidden');
+				$('#tr'+ id.val()).toggleClass('hidden');
 				swal(respuesta, {
 					icon: "success",
 				});
 			}
-		
 		});
-	});
+}
+function Asignar(id_row){
+	var id=$('#idBook');
+	var dni=$('#dniAsignar'+id_row);
+	id.val(id_row);
 }
 function Edit(id_row){
 	var Pcode= $('#Pcode'+id_row);
